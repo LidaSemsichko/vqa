@@ -26,3 +26,8 @@ py vqa_fast_free_images_pipeline.py --target 10 --use_pexels
 Full dataset:
 py vqa_fast_free_images_pipeline.py --target 3000 --use_pexels --download_workers 16 --workers 8 --low_ratio 0.75 --verify
 Output is a JSON file containing image paths and generated QA pairs.
+
+
+
+
+LINK FOR DRIVE WITH PHOTOS: https://drive.google.com/drive/folders/1sF3ROluNaBR5FOtMs8OPGaWhAiO1qPrg?usp=sharing

@@ -70,6 +70,8 @@ class TinyLLaVA(nn.Module):
                     new_masks.append(concat_mask)
 
         inputs_embeds = torch.stack(new_embeds, dim=0)
+        lm_dtype = next(self.language_model.parameters()).dtype
+        inputs_embeds = inputs_embeds.to(lm_dtype)
 
         if labels is not None:
             labels = torch.stack(new_labels, dim=0)
@@ -109,6 +111,9 @@ class TinyLLaVA(nn.Module):
 
         inputs_embeds = torch.stack(new_embeds, dim=0)
         attention_mask = torch.stack(new_masks, dim=0) if attention_mask is not None else None
+
+        lm_dtype = next(self.language_model.parameters()).dtype
+        inputs_embeds = inputs_embeds.to(lm_dtype)
 
         res = self.language_model.generate(
             inputs_embeds=inputs_embeds, attention_mask=attention_mask, **kwargs

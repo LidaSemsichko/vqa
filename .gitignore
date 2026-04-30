@@ -218,3 +218,8 @@ __marimo__/
 flickr30k
 
 *.pth
+
+tg_data
+data_collection
+myenv
+runs
